@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { LayoutDashboard, Users, Bell, Settings, Search, User, Sparkles, Filter, CheckCircle2, AlertCircle, EyeOff } from 'lucide-react';
+import React, { useState } from 'react';
+import GuestDirectory from "./GuestDirectory";
 
 const initialGuests = [
   { id: '101', name: 'Alice Smith', tier: 'VIP', location: 'In Room', isGhost: false },
@@ -144,6 +146,10 @@ export default function App() {
               </div>
             </>
           )}
+
+          {activeTab === 'guests' && (
+    <GuestDirectory />
+           )}
 
           {activeTab === 'actions' && (
             <div className="max-w-3xl">
