@@ -5,7 +5,7 @@
 const CONFIG = {
   API_BASE: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://127.0.0.1:8000'
-    : 'http://127.0.0.1:8000', // <-- replace with your deployed backend URL, e.g. 'https://your-app.onrender.com'
+    : 'https://kililma-hotel-api.onrender.com', // <-- replace with your deployed backend URL, e.g. 'https://your-app.onrender.com'
 };
 
 // ============================================================
