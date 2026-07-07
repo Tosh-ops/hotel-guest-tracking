@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-j&=bx=fqj)s8$_#f&*98$$ix6lltgx2ij&4w=k3eh*_7byr=wb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# For the class demo, allow any host to hit this server (e.g. ngrok, Render, etc).
+# If you deploy for real later, replace with your actual domain(s).
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,10 +44,12 @@ INSTALLED_APPS = [
     'hotel',
     'reports',
     'django_filters',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -53,6 +57,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Allow the frontend (Vercel, localhost, etc) to call this API.
+# Fine for a class project; a real product would list specific origins.
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'hotel_guest_tracking.urls'
 
