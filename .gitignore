@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Pytest
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+
+# Files created by package managers
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Backup files
+*.bak
+*.swp
+*.swo
+.env 
