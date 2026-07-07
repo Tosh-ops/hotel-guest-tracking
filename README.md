@@ -35,3 +35,32 @@ python manage.py runserver
 - Make sure `django_filters` is installed and configured for filtering support
 - Use `TokenObtainPairView` and `TokenRefreshView` for JWT auth
 - Reports are manager-only endpoints
+
+## Frontend
+
+`index.html` / `app.js` / `style.css` make up a single-page frontend that talks to this
+API directly (no build step — just static files). It has three role-based dashboards
+(Receptionist, Housekeeping, Manager), a live room-status board, and offline queuing for
+room-status and service-request updates.
+
+### Running the full demo locally
+
+```bash
+# terminal 1 — backend
+python -m venv .venv
+source .venv/bin/activate   # or .venv\Scripts\activate on Windows
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py seed_demo      # creates demo users + rooms
+python manage.py runserver
+
+# terminal 2 — frontend
+python -m http.server 5500      # serves index.html at http://localhost:5500
+```
+
+Open `http://localhost:5500`, and log in with any of the seeded accounts
+(password `demo1234` for all): `reception1`, `housekeeping1`, `manager1`.
+
+If you deploy the backend somewhere (Render, Railway, etc), update `CONFIG.API_BASE`
+at the top of `app.js` to point at the deployed URL, then redeploy the static frontend
+(e.g. to Vercel) as usual.

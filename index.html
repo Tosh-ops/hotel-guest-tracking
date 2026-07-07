@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kilima Hotel — Guest Tracking System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="loginScreen">
+  <div class="login-card">
+    <div class="login-brand">
+      <svg class="key-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="17" cy="17" r="10" stroke="#b8863b" stroke-width="3"/>
+        <path d="M24 24L40 40M40 40V32M40 40H32" stroke="#b8863b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h1>Kilima Hotel</h1>
+      <p>Guest Tracking System — Staff Login</p>
+    </div>
+
+    <div id="loginError" class="login-error hidden"></div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn-brass" style="width:100%; padding:12px;" id="loginSubmitBtn">Sign in</button>
+    </form>
+
+    <div class="demo-hint">
+      <b>Demo logins</b> (password <code>demo1234</code> for all)<br>
+      <code>reception1</code> — Receptionist<br>
+      <code>housekeeping1</code> — Housekeeping<br>
+      <code>manager1</code> — Manager
+    </div>
+  </div>
+</div>
+
+<!-- ===================== APP ===================== -->
+<div id="appScreen" class="hidden">
+  <div id="topbar">
+    <div class="brand">
+      <div>
+        <h1>Kilima Hotel</h1>
+        <span>Guest Tracking System</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="status-pill online" id="connectivityPill" title="Click to simulate connectivity loss for the demo">
+        <span class="dot"></span><span id="connectivityLabel">Online</span>
+      </div>
+      <div class="user-chip">
+        <span id="userName"></span>
+        <span class="role-badge" id="userRoleBadge"></span>
+      </div>
+      <button class="btn-ghost btn-small" id="logoutBtn">Log out</button>
+    </div>
+  </div>
+
+  <div id="tabs"></div>
+
+  <main id="mainContent"></main>
+</div>
+
+<div id="toastContainer"></div>
+<div id="modalRoot"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
