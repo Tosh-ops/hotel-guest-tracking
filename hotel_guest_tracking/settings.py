@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,11 +44,13 @@ INSTALLED_APPS = [
     'accounts',
     'hotel',
     'reports',
+    'chatbot',
     'django_filters',
     'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -148,3 +151,4 @@ SIMPLE_JWT = {
 STATIC_URL = 'static/'
 
 AUTH_USER_MODEL = 'accounts.User'
+CORS_ALLOW_ALL_ORIGINS = True

@@ -39,3 +39,4 @@ pip-delete-this-directory.txt
 *.bak
 *.swp
 *.swo
+.env 
